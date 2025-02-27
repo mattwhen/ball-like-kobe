@@ -8,9 +8,10 @@ const fetchBoxScores = async () => {
         const api = new BalldontlieAPI({ apiKey: API_KEY });
         const games = await api.nba.getGames({dates: [currentDate()]})
         
-        console.log("Games: ", games);
+        const sortGames = games.data.toSorted((a, b) => a.id - b.id);
         
-        return games.data;
+        console.log("Live Games: ", sortGames);
+        return sortGames;
     } catch (error) {
         console.error("Error fetching box scores! ", error)
     }

@@ -1,14 +1,12 @@
 "use client";
-import Calendar from "./components/ui/Calendar/Calendar";
-import Table from "./components/ui/Table/Table";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import App from "./App"
 
 // Create a client
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
 			refetchOnWindowFocus: false, // default: true
-			staleTime: 60000, // 1 minute refresh
 		},
 	},
 });
@@ -16,8 +14,8 @@ const queryClient = new QueryClient({
 export default function Home() {
 	return (
 		// Provide the client to application.
-			<QueryClientProvider client={queryClient}>
-				<Table />
-			</QueryClientProvider>
+		<QueryClientProvider client={queryClient}>
+			<App />
+		</QueryClientProvider>
 	);
 }
