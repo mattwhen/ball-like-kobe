@@ -3,10 +3,12 @@ import { BalldontlieAPI } from "@balldontlie/sdk";
 import { currentDate } from "../../../utils/formatDate";
 
 
-const fetchBoxScores = async () => {
+const fetchBoxScores = async (date: string) => {
+    console.log("Box score date: ", date);
+    
     try {
         const api = new BalldontlieAPI({ apiKey: API_KEY });
-        const games = await api.nba.getGames({dates: [currentDate()]})
+        const games = await api.nba.getGames({dates: [date]})
         
         const sortGames = games.data.toSorted((a, b) => a.id - b.id);
         

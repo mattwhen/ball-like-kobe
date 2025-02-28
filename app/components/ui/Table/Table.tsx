@@ -1,7 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import ScoreCard from "../ScoreCard/ScoreCard";
-import Calendar from "../Calendar/Calendar";
 
 type ScoresQuery = {
 	isPending: boolean;
@@ -11,6 +10,7 @@ type ScoresQuery = {
 };
 
 type Game = {
+	id: number;
 	datetime: string;
 	home_team_score: number;
 	home_team: {

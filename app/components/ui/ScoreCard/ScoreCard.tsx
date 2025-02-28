@@ -30,6 +30,7 @@ const ScoreCard = ({ scoreData, isScoreFetching }) => {
 		home_team_score,
 		period,
 		time,
+		status,
 		visitor_team,
 		visitor_team_score,
 	} = scoreData;
@@ -71,7 +72,7 @@ const ScoreCard = ({ scoreData, isScoreFetching }) => {
 					
 				<div>
 					<p>{period === 0 ? formatTime(datetime) : null}</p>
-					<p>{time === "Final" ? "Final" : null}</p>
+					<p>{status === "Final" ? "Final" : null}</p>
 				</div>
 				</div>
 				<div className="text-center">

@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Table from "../ui/Table/Table";
 import Calendar from "../ui/Calendar/Calendar";
 
@@ -25,16 +24,17 @@ type Game = {
 
 type TableProps = {
 	scoresQuery: ScoresQuery;
+    selectedDate: string;
+    setSelectedDate: (date: string) => void;
 };
 
-const Container: React.FC<TableProps> = ({ scoresQuery }) => {
-    const [dateSelect, setDateSelect] = useState("");
+const Container: React.FC<TableProps> = ({ scoresQuery, selectedDate, setSelectedDate }) => {
     
 	return (
 		<div>
 			<Table scoresQuery={scoresQuery} />
 			<div className="flex justify-center">
-				<Calendar dateSelect={dateSelect} setDateSelect={setDateSelect}/>
+				<Calendar selectedDate={selectedDate} setSelectedDate={setSelectedDate} />
 			</div>
 		</div>
 	);

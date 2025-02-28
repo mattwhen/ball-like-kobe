@@ -1,15 +1,20 @@
 import { fullDateFormat } from "@/app/utils/formatDate";
 import React from "react";
 
-const Title = ({ scoresQuery }) => {
-	const { isFetched } = scoresQuery;
-	return (
+type ScoresQuery = {
+	isPending: boolean;
+	isFetching: boolean;
+	error: string;
+	data: Game[];
+};
 
-        <div className="mb-12">
-			<h1 className="text-center text-2xl">Today&apos;s games:</h1>
-			<h2 className="text-center text-2xl">{fullDateFormat()}</h2>
+const Title: React.FC<ScoresQuery> = ({ scoresQuery, selectedDate }) => {
+	return (
+		<div className="mb-12">
+			<h2 className="text-center text-2xl">{fullDateFormat(selectedDate)}</h2>
 		</div>
 	);
 };
 
 export default Title;
+ 
